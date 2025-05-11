@@ -4,12 +4,14 @@ const {
   getAllProducts,
   addProduct,
   deleteProduct,
+  getProductById, 
 } = require("../controllers/productController");
 const { authenticate, authorizeAdmin } = require("../middlewares/auth");
 
 const router = express.Router();
 
 router.get("/", getAllProducts);
+router.get("/:id", getProductById);
 router.post(
   "/",
   authenticate,
